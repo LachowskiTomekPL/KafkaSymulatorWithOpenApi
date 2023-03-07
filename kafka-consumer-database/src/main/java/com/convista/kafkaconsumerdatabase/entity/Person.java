@@ -1,4 +1,4 @@
-package com.convista.symulator.entity;
+package com.convista.kafkaconsumerdatabase.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

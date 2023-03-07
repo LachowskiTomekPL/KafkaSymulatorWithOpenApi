@@ -1,4 +1,4 @@
-package com.convista.symulator.kafkaConfig;
+package com.convista.kafkaconsumerdatabase;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+
 public class KafkaConsumerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootsrapServers;
