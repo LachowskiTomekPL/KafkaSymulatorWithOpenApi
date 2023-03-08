@@ -16,12 +16,12 @@ public class PersonController {
 
 
     @PostMapping("/persons")
-    public ResponseEntity<String> addPerson(@RequestBody Person person) {
-        Person personEntity = new Person();
-        kafkaService.sendPersonToKafka(person.getFirstName());
+    public ResponseEntity<Person> addPerson(@RequestBody Person person) {
+
+        kafkaService.sendPersonToKafka(person.getUuid().toString(), person);
 
 
-        return ResponseEntity.ok(person.getFirstName());
+        return ResponseEntity.ok(person);
 
     }
 
