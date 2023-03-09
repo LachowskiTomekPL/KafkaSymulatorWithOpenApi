@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ConsumerDatabaseRepository extends JpaRepository<PersonMessage, Long> {
 
-    public PersonMessage save(PersonMessage personMessage);
-
 
 }

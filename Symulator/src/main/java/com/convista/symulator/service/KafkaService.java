@@ -1,6 +1,6 @@
 package com.convista.symulator.service;
 
-import com.convista.symulator.entity.Person;
+import com.convista.shared.model.Person;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ public class KafkaService {
     @Value("${spring.kafka.topic.name}")
     private String topicName;
 
-    public void sendPersonToKafka(String topicName, Person message) {
+    public void sendPersonToKafka(Person message) {
         log.info("Sending archive message with id {} to kafka topic" + message);
         kafkaTemplate.send(topicName, message);
 

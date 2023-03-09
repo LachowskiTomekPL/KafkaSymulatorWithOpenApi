@@ -1,4 +1,4 @@
-package com.convista.kafkaconsumerdatabase.entity;
+package com.convista.shared.model;
 
 import lombok.Data;
 
