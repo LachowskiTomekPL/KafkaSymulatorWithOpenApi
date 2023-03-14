@@ -25,6 +25,7 @@ public class KafkaConsumerService {
         PersonMessage personMessage = new PersonMessage();
         personMessage.setFirstName(record.value().getFirstName());
         personMessage.setLastName(record.value().getLastName());
+        personMessage.setGender(record.value().getGender());
         personMessage.setUuid(record.value().getUuid());
         consumerDatabaseRepository.save(personMessage);
 

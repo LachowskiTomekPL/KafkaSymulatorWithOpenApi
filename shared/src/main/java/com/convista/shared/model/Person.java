@@ -13,6 +13,8 @@ public class Person {
     private String firstName;
     private String lastName;
 
+    Gender gender;
+
     private UUID uuid;
 //    @JsonFormat(pattern = "yyyy-MM-dd")
 //    private LocalDate dateOfBirth;

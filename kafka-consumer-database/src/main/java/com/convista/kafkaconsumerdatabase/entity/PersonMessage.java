@@ -1,5 +1,6 @@
 package com.convista.kafkaconsumerdatabase.entity;
 
+import com.convista.shared.model.Gender;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,5 +16,8 @@ public class PersonMessage {
     private Long id;
     private String firstName;
     private String lastName;
+
+    private Gender gender;
+
     private UUID uuid;
 }

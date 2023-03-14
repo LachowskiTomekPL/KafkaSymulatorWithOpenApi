@@ -1,4 +1,4 @@
-package com.convista.kafkaconsumerdatabase;
+package com.convista.kafkaconsumerdatabase.config;
 
 import com.convista.shared.model.Person;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
