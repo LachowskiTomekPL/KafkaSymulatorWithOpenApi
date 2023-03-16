@@ -21,7 +21,7 @@
         <module>Symulator</module>
         <module>kafka-consumer-database</module>
         <module>shared</module>
-
+        <module>soe</module>
     </modules>
     <dependencies>
         <dependency>

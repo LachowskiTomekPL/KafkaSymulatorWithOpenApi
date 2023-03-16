@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Convista Application
+  description: "This is applikation using Kafka, Sprng Boot and Java. It is sending messeges by producer, reading by consumer and writing in PostgreSQL database"
+  version: 1.0.0
+  contact:
+    name: "Convista"
+    url: https://convista.pl
+servers:
+  - url: http://localhost:8080
+    description: Local server
+paths:
+  /findByGender/{gender}:
+    get:
+      tags:
+        - gender
+      summary: Find gender by ID
+      description: Returns gender by ID
+      operationId: getGenderById
+      parameters:
+        - name: gender
+          in: path
+          description: ID of gender to return
+          required: true
+          schema:
+            type: string
+            enum: [ Male, Female, Nonbinary ]
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Person"
+        #            application/xml:
+        #              schema:
+        #                $ref: ''
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Gender not found
+
+components:
+  schemas:
+    Person:
+      type: object
+      required:
+        - "firstName"
+        - "lastName"
+        - "gender"
+        - "uuid"
+
+      properties:
+        firstName:
+          $ref: "#/components/schemas/firstName"
+        lastname:
+          $ref: "#/components/schemas/lastName"
+        gender:
+          $ref: "#/components/schemas/gender"
+        uuid:
+          $ref: "#/components/schemas/uuid"
+
+
+
+    firstName:
+      type: string
+
+    lastName:
+      type: string
+
+    gender:
+      type: string
+      enum: [ Male, Female, Nonbinary ]
+    uuid:
+      type: string
+
+
+
+
+
+
+
+
+
+
+
