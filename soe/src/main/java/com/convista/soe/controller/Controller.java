@@ -1,4 +1,4 @@
-package controller;
+package com.convista.soe.controller;
 
 import com.convista.soe.FindByGenderApi;
 import com.convista.soe.Gender;
@@ -16,16 +16,14 @@ public class Controller implements FindByGenderApi {
     @Override
     public ResponseEntity<Person> getGenderById(String gender) {
 
-
         Person person = new Person();
         person.setFirstName("Jan");
         person.setLastname("Kowalski");
         person.setUuid("34343443");
         person.setGender(Gender.FEMALE);
 
-        return ResponseEntity.ok(soeService.getGender(person));
+        return ResponseEntity.ok(person);
+//        return ResponseEntity.ok(soeService.getGender(person));
 
     }
-
-
 }
