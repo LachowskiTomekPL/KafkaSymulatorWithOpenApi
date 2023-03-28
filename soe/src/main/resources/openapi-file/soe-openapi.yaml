@@ -32,7 +32,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Person"
+                type: array
+                items:
+                  $ref: "#/components/schemas/PersonResponse"
         #            application/xml:
         #              schema:
         #                $ref: ''
@@ -43,7 +45,7 @@ paths:
 
 components:
   schemas:
-    Person:
+    PersonResponse:
       type: object
       required:
         - "firstName"

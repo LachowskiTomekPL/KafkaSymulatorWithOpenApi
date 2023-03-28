@@ -1,6 +1,6 @@
 package com.convista.symulator.kafkaConfig;
 
-import com.convista.shared.model.Person;
+import com.convista.shared.model.PersonDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,12 +33,12 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String, Person> producerFactory() {
+    public ProducerFactory<String, PersonDTO> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfig());
     }
 
     @Bean
-    public KafkaTemplate<String, Person> kafkaTemplate() {
+    public KafkaTemplate<String, PersonDTO> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

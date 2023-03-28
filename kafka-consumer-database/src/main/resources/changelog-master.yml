@@ -1,0 +1,4 @@
+#changelog-master.yml
+databaseChangeLog:
+  - include:
+      file: /database/23.03.2023/01-createTable.sql

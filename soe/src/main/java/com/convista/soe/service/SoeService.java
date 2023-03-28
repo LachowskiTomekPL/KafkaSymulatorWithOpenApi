@@ -1,14 +1,22 @@
 package com.convista.soe.service;
 
-import com.convista.soe.Person;
+import com.convista.shared.model.PersonEntity;
+import com.convista.soe.repository.PersonRepository;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class SoeService {
-    public Person getGender(Person person) {
-        return Optional.ofNullable(person.gender(person.getGender()))
-                .orElseThrow();
+    PersonRepository personRepository;
+
+    public List<PersonEntity> getGender(String gender) {
+        return personRepository.findAllByGender(gender);
     }
+
+
 }

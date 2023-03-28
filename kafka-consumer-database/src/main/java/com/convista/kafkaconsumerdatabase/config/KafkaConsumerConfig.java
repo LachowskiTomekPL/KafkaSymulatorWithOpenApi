@@ -1,6 +1,6 @@
 package com.convista.kafkaconsumerdatabase.config;
 
-import com.convista.shared.model.Person;
+import com.convista.shared.model.PersonDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +25,7 @@ public class KafkaConsumerConfig {
     private String bootsrapServers;
 
     @Bean
-    public ConsumerFactory<String, Person> consumerFactory() {
+    public ConsumerFactory<String, PersonDTO> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootsrapServers);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "groupId");
@@ -33,13 +33,13 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(ErrorHandlingDeserializer.KEY_DESERIALIZER_CLASS, JsonDeserializer.class);
         props.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(Person.class));
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(PersonDTO.class));
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Person>
+    public ConcurrentKafkaListenerContainerFactory<String, PersonDTO>
     kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, Person> factory =
+        ConcurrentKafkaListenerContainerFactory<String, PersonDTO> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;

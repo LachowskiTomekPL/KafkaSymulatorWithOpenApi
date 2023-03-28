@@ -1,6 +1,6 @@
 package com.convista.symulator.controller;
 
-import com.convista.shared.model.Person;
+import com.convista.shared.model.PersonDTO;
 import com.convista.symulator.service.KafkaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,12 @@ public class PersonController {
 
 
     @PostMapping("/persons")
-    public ResponseEntity<Person> addPerson(@RequestBody Person person) {
+    public ResponseEntity<PersonDTO> addPerson(@RequestBody PersonDTO personDTO) {
 
-        kafkaService.sendPersonToKafka(person);
+        kafkaService.sendPersonToKafka(personDTO);
 
 
-        return ResponseEntity.ok(person);
+        return ResponseEntity.ok(personDTO);
 
     }
 
