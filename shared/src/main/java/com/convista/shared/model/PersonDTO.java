@@ -1,9 +1,9 @@
 package com.convista.shared.model;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.Data;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.UUID;
 
 

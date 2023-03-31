@@ -1,18 +1,19 @@
 {
 	"info": {
-		"_postman_id": "02c83378-a972-4e3b-9a54-f78d8467b684",
-		"name": "ConvistaApp",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "b20cf89e-c418-4ddd-9535-b0a2bb4648c6",
+		"name": "Person collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13641765"
 	},
 	"item": [
 		{
-			"name": "post Person",
+			"name": "Add person",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"kp4\",\r\n    \"lastName\": \"pien\",\r\n    \"uuid\": \"c594658c-6520-4224-a942-b8bed21a0a22\"\r\n}",
+					"raw": "{\r\n    \"firstName\":\"Jozef\",\r\n    \"lastName\":\"Nowak\",\r\n    \"gender\":\"FEMALE\",\r\n    \"uuid\":\"c33993e3-25c5-48f5-8dcd-428b9deabeea\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,8 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/persons",
-					"protocol": "http",
+					"raw": "localhost:8081/persons",
 					"host": [
 						"localhost"
 					],
@@ -34,13 +34,16 @@
 			"response": []
 		},
 		{
-			"name": "get person by gender",
+			"name": "Get personlist by gender",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"kp4\",\r\n    \"lastName\": \"pien\",\r\n    \"uuid\": \"c594658c-6520-4224-a942-b8bed21a0a22\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,14 +51,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/persons",
-					"protocol": "http",
+					"raw": "localhost:8082/findByGender/female",
 					"host": [
 						"localhost"
 					],
-					"port": "8081",
+					"port": "8082",
 					"path": [
-						"persons"
+						"findByGender",
+						"female"
 					]
 				}
 			},

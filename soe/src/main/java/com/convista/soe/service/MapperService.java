@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class PersonMapperService {
+public class MapperService {
 
     public List<PersonResponse> mapToPersonResponse(List<PersonEntity> personEntityList) {
         List<PersonResponse> personResponseList = new ArrayList<>();
@@ -25,7 +25,7 @@ public class PersonMapperService {
     private PersonResponse mapEntity(PersonEntity personEntity) {
         PersonResponse personResponse = new PersonResponse();
         personResponse.setFirstName(personEntity.getFirstName());
-        personResponse.setFirstName(personEntity.getLastName());
+        personResponse.setLastname(personEntity.getLastName());
         personResponse.setUuid(personEntity.getUuid().toString());
         personResponse.setGender(Gender.valueOf(personEntity.getGender().toString()));
 
