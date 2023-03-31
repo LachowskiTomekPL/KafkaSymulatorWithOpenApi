@@ -24,12 +24,7 @@ public class KafkaConsumerService {
     public void getPersonsFromKafka(ConsumerRecord<String, PersonDTO> record) {
 
         log.info("Printing person: " + record.value());
-//        PersonMessage personMessage = new PersonMessage();
-//        personMessage.setFirstName(record.value().getFirstName());
-//        personMessage.setLastName(record.value().getLastName());
-//        personMessage.setGender(record.value().getGender());
-//        personMessage.setUuid(record.value().getUuid());
-//        consumerDatabaseRepository.save(personMessage);
+
         //TODO Mapper
         PersonEntity personEntity = new PersonEntity();
         personEntity.setFirstName(record.value().getFirstName());
