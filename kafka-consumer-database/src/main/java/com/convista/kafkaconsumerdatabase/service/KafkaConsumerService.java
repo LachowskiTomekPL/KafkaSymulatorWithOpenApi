@@ -3,7 +3,6 @@ package com.convista.kafkaconsumerdatabase.service;
 import com.convista.kafkaconsumerdatabase.repository.ConsumerDatabaseRepository;
 import com.convista.shared.model.PersonDTO;
 import com.convista.shared.model.PersonEntity;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -13,10 +12,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @Data
-@AllArgsConstructor
+
 public class KafkaConsumerService {
     ConsumerDatabaseRepository consumerDatabaseRepository;
 
+    public KafkaConsumerService(ConsumerDatabaseRepository consumerDatabaseRepository) {
+        this.consumerDatabaseRepository = consumerDatabaseRepository;
+    }
 
     @KafkaListener(topics = "kafka-topic2", groupId = "groupId")
     public void getPersonsFromKafka(ConsumerRecord<String, PersonDTO> record) {
